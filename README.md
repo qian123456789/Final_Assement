@@ -1,7 +1,6 @@
 # SCIF20002 – Programming and Data Analysis for Scientists  
 ## Final Assessment
 
-
 ---
 
 ### Introduction
@@ -16,17 +15,17 @@ You may use either C++ and/or Python as you see fit, but your report must justif
 ### Part 1 – Producing the N-body Code
 An N-body code must follow the trajectories of a fixed number of particles \( N \). Each particle \( i \) is a vector in 3D space. Particles interact via the force between them. If the force on particle \( i \) due to particle \( j \) is given by:
 
-\[
+$$
 \vec{F}_{ij}
-\]
+$$
 
 The net force acting on particle \( i \) is the sum over all particles (except \( i \)).
 
 The acceleration of particle \( i \) follows Newton’s second law:
 
-\[
+$$
 \vec{a}_i = \frac{\vec{F}_{ij}}{m_i}
-\]
+$$
 
 We can then calculate the velocity and position changes over a given time-step \( \delta t \). Interactions between particles are dependent on their relative positions.
 
@@ -34,15 +33,15 @@ We use the Verlet ‘leap-frog’ integration scheme to perform the integration:
 
 1. Update velocity using half the step size:
 
-\[
+$$
 \vec{v}_i = \vec{v}_i + \frac{\delta t}{2} \vec{a}_i
-\]
+$$
 
 2. Update position:
 
-\[
+$$
 \vec{r}_i = \vec{r}_i + \delta t \vec{v}_i
-\]
+$$
 
 3. Recompute acceleration and update velocity again using the remaining half time-step.
 
@@ -51,9 +50,9 @@ Create code for Verlet integration for a system of \( N \) particles. Demonstrat
 
 You are advised to use dimensionless units:
 
-\[
+$$
 E = 125.7 \times k_B, \quad \sigma = 0.3345 \times 10^{-9} m
-\]
+$$
 
 ---
 
@@ -68,25 +67,19 @@ Add a cubic box to your simulation and describe particle-wall collision implemen
 ### Part 3 – Investigation
 The temperature of the gas is defined by the total kinetic energy of the particles:
 
-\[
+$$
 T = \frac{1}{3k_B N} \sum_i m_i v_i^2
-\]
+$$
 
 The pressure \( P \) is linked to the momentum crossing a unit area in unit time. For an area \( A \) in the y-z plane, the momentum crossing in time \( \Delta t \) is the x-component of any particle crossing the plane:
 
-\[
+$$
 P = \frac{1}{A \Delta t} \sum_i m_i v_{ix}
-\]
+$$
 
 Assume the pressure is isotropic (\( P_x = P_y = P_z \)) and test this in your simulations.
 
 #### Task
 Investigate how gas pressure changes with box volume and temperature. Decide on particle number \( N \), time-step \( \delta t \), simulation time, and initial conditions. Justify choices scientifically and computationally.
 
----
-
-### Submission
-Submit your documented code and report. Ensure the code links to working examples from the first two tasks. Include details of code testing, particle numbers used, simulation length, and energy conservation.
-
----
 
